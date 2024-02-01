@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="154b326ccac94cffaf49f3e1bcdc7eb4" Name="Diagram1">
+        <EntityTypeShape EntityType="KR2_NagimovModel.Otdel" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="KR2_NagimovModel.Platforma" Width="1.5" PointX="0.75" PointY="5" />
+        <EntityTypeShape EntityType="KR2_NagimovModel.Role" Width="1.5" PointX="2.75" PointY="9.625" />
+        <EntityTypeShape EntityType="KR2_NagimovModel.Rukovodstvo" Width="1.5" PointX="1.5" PointY="1.5" />
+        <EntityTypeShape EntityType="KR2_NagimovModel.Sotrudnik" Width="1.5" PointX="6" PointY="4.375" />
+        <EntityTypeShape EntityType="KR2_NagimovModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="9.25" />
+        <EntityTypeShape EntityType="KR2_NagimovModel.User" Width="1.5" PointX="5" PointY="9.375" />
+        <EntityTypeShape EntityType="KR2_NagimovModel.Zadacha" Width="1.5" PointX="8.25" PointY="5" />
+        <EntityTypeShape EntityType="KR2_NagimovModel.Zaiavka" Width="1.5" PointX="3" PointY="4.5" />
+        <EntityTypeShape EntityType="KR2_NagimovModel.ZaiavkaOtdel" Width="1.5" PointX="8.25" PointY="1.875" />
+        <EntityTypeShape EntityType="KR2_NagimovModel.Zakazchik" Width="1.5" PointX="0.75" PointY="8.125" />
+        <AssociationConnector Association="KR2_NagimovModel.FK_Otdel_Rukovodstvo" />
+        <AssociationConnector Association="KR2_NagimovModel.FK_Sotrudnik_Otdel" />
+        <AssociationConnector Association="KR2_NagimovModel.FK_ZaiavkaOtdel_Otdel" />
+        <AssociationConnector Association="KR2_NagimovModel.FK_Sotrudnik_StackTechnology" />
+        <AssociationConnector Association="KR2_NagimovModel.FK_Zaiavka_Platforma" />
+        <AssociationConnector Association="KR2_NagimovModel.FK_User_Role" />
+        <AssociationConnector Association="KR2_NagimovModel.FK_Zadacha_Sotrudnik" />
+        <AssociationConnector Association="KR2_NagimovModel.FK_Zadacha_ZaiavkaOtdel" />
+        <AssociationConnector Association="KR2_NagimovModel.FK_Zaiavka_Zakazchik" />
+        <AssociationConnector Association="KR2_NagimovModel.FK_ZaiavkaOtdel_Zaiavka" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

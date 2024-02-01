@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище KR2_NagimovModelContainer" CdmEntityContainer="KR2_NagimovEntities">
+    <EntitySetMapping Name="Otdel">
+      <EntityTypeMapping TypeName="KR2_NagimovModel.Otdel">
+        <MappingFragment StoreEntitySet="Otdel">
+          <ScalarProperty Name="GlavaId" ColumnName="GlavaId" />
+          <ScalarProperty Name="Zadachi" ColumnName="Zadachi" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Platforma">
+      <EntityTypeMapping TypeName="KR2_NagimovModel.Platforma">
+        <MappingFragment StoreEntitySet="Platforma">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="KR2_NagimovModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rukovodstvo">
+      <EntityTypeMapping TypeName="KR2_NagimovModel.Rukovodstvo">
+        <MappingFragment StoreEntitySet="Rukovodstvo">
+          <ScalarProperty Name="Doljnost" ColumnName="Doljnost" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sotrudnik">
+      <EntityTypeMapping TypeName="KR2_NagimovModel.Sotrudnik">
+        <MappingFragment StoreEntitySet="Sotrudnik">
+          <ScalarProperty Name="Stavka" ColumnName="Stavka" />
+          <ScalarProperty Name="OtdelId" ColumnName="OtdelId" />
+          <ScalarProperty Name="StackTechnology" ColumnName="StackTechnology" />
+          <ScalarProperty Name="Pasport" ColumnName="Pasport" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="KR2_NagimovModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="KR2_NagimovModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zadacha">
+      <EntityTypeMapping TypeName="KR2_NagimovModel.Zadacha">
+        <MappingFragment StoreEntitySet="Zadacha">
+          <ScalarProperty Name="SotrudnikId" ColumnName="SotrudnikId" />
+          <ScalarProperty Name="ZaiavkaOtdelId" ColumnName="ZaiavkaOtdelId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zaiavka">
+      <EntityTypeMapping TypeName="KR2_NagimovModel.Zaiavka">
+        <MappingFragment StoreEntitySet="Zaiavka">
+          <ScalarProperty Name="Deadline" ColumnName="Deadline" />
+          <ScalarProperty Name="ObrashenieDate" ColumnName="ObrashenieDate" />
+          <ScalarProperty Name="Platforma" ColumnName="Platforma" />
+          <ScalarProperty Name="Opisanie" ColumnName="Opisanie" />
+          <ScalarProperty Name="ZakazchikId" ColumnName="ZakazchikId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZaiavkaOtdel">
+      <EntityTypeMapping TypeName="KR2_NagimovModel.ZaiavkaOtdel">
+        <MappingFragment StoreEntitySet="ZaiavkaOtdel">
+          <ScalarProperty Name="OtdelId" ColumnName="OtdelId" />
+          <ScalarProperty Name="ZaiavkaId" ColumnName="ZaiavkaId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zakazchik">
+      <EntityTypeMapping TypeName="KR2_NagimovModel.Zakazchik">
+        <MappingFragment StoreEntitySet="Zakazchik">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

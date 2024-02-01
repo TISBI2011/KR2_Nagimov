@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KR2_NagimovModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="KR2_NagimovEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Otdel" EntityType="KR2_NagimovModel.Otdel" />
+    <EntitySet Name="Platforma" EntityType="KR2_NagimovModel.Platforma" />
+    <EntitySet Name="Role" EntityType="KR2_NagimovModel.Role" />
+    <EntitySet Name="Rukovodstvo" EntityType="KR2_NagimovModel.Rukovodstvo" />
+    <EntitySet Name="Sotrudnik" EntityType="KR2_NagimovModel.Sotrudnik" />
+    <EntitySet Name="sysdiagrams" EntityType="KR2_NagimovModel.sysdiagrams" />
+    <EntitySet Name="User" EntityType="KR2_NagimovModel.User" />
+    <EntitySet Name="Zadacha" EntityType="KR2_NagimovModel.Zadacha" />
+    <EntitySet Name="Zaiavka" EntityType="KR2_NagimovModel.Zaiavka" />
+    <EntitySet Name="ZaiavkaOtdel" EntityType="KR2_NagimovModel.ZaiavkaOtdel" />
+    <EntitySet Name="Zakazchik" EntityType="KR2_NagimovModel.Zakazchik" />
+    <AssociationSet Name="FK_Otdel_Rukovodstvo" Association="KR2_NagimovModel.FK_Otdel_Rukovodstvo">
+      <End Role="Rukovodstvo" EntitySet="Rukovodstvo" />
+      <End Role="Otdel" EntitySet="Otdel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sotrudnik_Otdel" Association="KR2_NagimovModel.FK_Sotrudnik_Otdel">
+      <End Role="Otdel" EntitySet="Otdel" />
+      <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ZaiavkaOtdel_Otdel" Association="KR2_NagimovModel.FK_ZaiavkaOtdel_Otdel">
+      <End Role="Otdel" EntitySet="Otdel" />
+      <End Role="ZaiavkaOtdel" EntitySet="ZaiavkaOtdel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sotrudnik_StackTechnology" Association="KR2_NagimovModel.FK_Sotrudnik_StackTechnology">
+      <End Role="Platforma" EntitySet="Platforma" />
+      <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Zaiavka_Platforma" Association="KR2_NagimovModel.FK_Zaiavka_Platforma">
+      <End Role="Platforma" EntitySet="Platforma" />
+      <End Role="Zaiavka" EntitySet="Zaiavka" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="KR2_NagimovModel.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Zadacha_Sotrudnik" Association="KR2_NagimovModel.FK_Zadacha_Sotrudnik">
+      <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+      <End Role="Zadacha" EntitySet="Zadacha" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Zadacha_ZaiavkaOtdel" Association="KR2_NagimovModel.FK_Zadacha_ZaiavkaOtdel">
+      <End Role="ZaiavkaOtdel" EntitySet="ZaiavkaOtdel" />
+      <End Role="Zadacha" EntitySet="Zadacha" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Zaiavka_Zakazchik" Association="KR2_NagimovModel.FK_Zaiavka_Zakazchik">
+      <End Role="Zakazchik" EntitySet="Zakazchik" />
+      <End Role="Zaiavka" EntitySet="Zaiavka" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ZaiavkaOtdel_Zaiavka" Association="KR2_NagimovModel.FK_ZaiavkaOtdel_Zaiavka">
+      <End Role="Zaiavka" EntitySet="Zaiavka" />
+      <End Role="ZaiavkaOtdel" EntitySet="ZaiavkaOtdel" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Otdel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Zadachi" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GlavaId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Rukovodstvo" Relationship="KR2_NagimovModel.FK_Otdel_Rukovodstvo" FromRole="Otdel" ToRole="Rukovodstvo" />
+    <NavigationProperty Name="Sotrudnik" Relationship="KR2_NagimovModel.FK_Sotrudnik_Otdel" FromRole="Otdel" ToRole="Sotrudnik" />
+    <NavigationProperty Name="ZaiavkaOtdel" Relationship="KR2_NagimovModel.FK_ZaiavkaOtdel_Otdel" FromRole="Otdel" ToRole="ZaiavkaOtdel" />
+  </EntityType>
+  <EntityType Name="Platforma">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Sotrudnik" Relationship="KR2_NagimovModel.FK_Sotrudnik_StackTechnology" FromRole="Platforma" ToRole="Sotrudnik" />
+    <NavigationProperty Name="Zaiavka" Relationship="KR2_NagimovModel.FK_Zaiavka_Platforma" FromRole="Platforma" ToRole="Zaiavka" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="KR2_NagimovModel.FK_User_Role" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Rukovodstvo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Doljnost" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Otdel" Relationship="KR2_NagimovModel.FK_Otdel_Rukovodstvo" FromRole="Rukovodstvo" ToRole="Otdel" />
+  </EntityType>
+  <EntityType Name="Sotrudnik">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Pasport" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StackTechnology" Type="Int32" Nullable="false" />
+    <Property Name="OtdelId" Type="Int32" Nullable="false" />
+    <Property Name="Stavka" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Otdel" Relationship="KR2_NagimovModel.FK_Sotrudnik_Otdel" FromRole="Sotrudnik" ToRole="Otdel" />
+    <NavigationProperty Name="Platforma" Relationship="KR2_NagimovModel.FK_Sotrudnik_StackTechnology" FromRole="Sotrudnik" ToRole="Platforma" />
+    <NavigationProperty Name="Zadacha" Relationship="KR2_NagimovModel.FK_Zadacha_Sotrudnik" FromRole="Sotrudnik" ToRole="Zadacha" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Role" Relationship="KR2_NagimovModel.FK_User_Role" FromRole="User" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="Zadacha">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ZaiavkaOtdelId" Type="Int32" Nullable="false" />
+    <Property Name="SotrudnikId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Sotrudnik" Relationship="KR2_NagimovModel.FK_Zadacha_Sotrudnik" FromRole="Zadacha" ToRole="Sotrudnik" />
+    <NavigationProperty Name="ZaiavkaOtdel" Relationship="KR2_NagimovModel.FK_Zadacha_ZaiavkaOtdel" FromRole="Zadacha" ToRole="ZaiavkaOtdel" />
+  </EntityType>
+  <EntityType Name="Zaiavka">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ZakazchikId" Type="Int32" Nullable="false" />
+    <Property Name="Opisanie" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Platforma" Type="Int32" Nullable="false" />
+    <Property Name="ObrashenieDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Deadline" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Platforma1" Relationship="KR2_NagimovModel.FK_Zaiavka_Platforma" FromRole="Zaiavka" ToRole="Platforma" />
+    <NavigationProperty Name="Zakazchik" Relationship="KR2_NagimovModel.FK_Zaiavka_Zakazchik" FromRole="Zaiavka" ToRole="Zakazchik" />
+    <NavigationProperty Name="ZaiavkaOtdel" Relationship="KR2_NagimovModel.FK_ZaiavkaOtdel_Zaiavka" FromRole="Zaiavka" ToRole="ZaiavkaOtdel" />
+  </EntityType>
+  <EntityType Name="ZaiavkaOtdel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ZaiavkaId" Type="Int32" Nullable="false" />
+    <Property Name="OtdelId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Otdel" Relationship="KR2_NagimovModel.FK_ZaiavkaOtdel_Otdel" FromRole="ZaiavkaOtdel" ToRole="Otdel" />
+    <NavigationProperty Name="Zadacha" Relationship="KR2_NagimovModel.FK_Zadacha_ZaiavkaOtdel" FromRole="ZaiavkaOtdel" ToRole="Zadacha" />
+    <NavigationProperty Name="Zaiavka" Relationship="KR2_NagimovModel.FK_ZaiavkaOtdel_Zaiavka" FromRole="ZaiavkaOtdel" ToRole="Zaiavka" />
+  </EntityType>
+  <EntityType Name="Zakazchik">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Zaiavka" Relationship="KR2_NagimovModel.FK_Zaiavka_Zakazchik" FromRole="Zakazchik" ToRole="Zaiavka" />
+  </EntityType>
+  <Association Name="FK_Otdel_Rukovodstvo">
+    <End Type="KR2_NagimovModel.Rukovodstvo" Role="Rukovodstvo" Multiplicity="1" />
+    <End Type="KR2_NagimovModel.Otdel" Role="Otdel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rukovodstvo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Otdel">
+        <PropertyRef Name="GlavaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sotrudnik_Otdel">
+    <End Type="KR2_NagimovModel.Otdel" Role="Otdel" Multiplicity="1" />
+    <End Type="KR2_NagimovModel.Sotrudnik" Role="Sotrudnik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Otdel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sotrudnik">
+        <PropertyRef Name="OtdelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ZaiavkaOtdel_Otdel">
+    <End Type="KR2_NagimovModel.Otdel" Role="Otdel" Multiplicity="1" />
+    <End Type="KR2_NagimovModel.ZaiavkaOtdel" Role="ZaiavkaOtdel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Otdel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ZaiavkaOtdel">
+        <PropertyRef Name="OtdelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sotrudnik_StackTechnology">
+    <End Type="KR2_NagimovModel.Platforma" Role="Platforma" Multiplicity="1" />
+    <End Type="KR2_NagimovModel.Sotrudnik" Role="Sotrudnik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Platforma">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sotrudnik">
+        <PropertyRef Name="StackTechnology" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Zaiavka_Platforma">
+    <End Type="KR2_NagimovModel.Platforma" Role="Platforma" Multiplicity="1" />
+    <End Type="KR2_NagimovModel.Zaiavka" Role="Zaiavka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Platforma">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Zaiavka">
+        <PropertyRef Name="Platforma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role">
+    <End Type="KR2_NagimovModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="KR2_NagimovModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Zadacha_Sotrudnik">
+    <End Type="KR2_NagimovModel.Sotrudnik" Role="Sotrudnik" Multiplicity="1" />
+    <End Type="KR2_NagimovModel.Zadacha" Role="Zadacha" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sotrudnik">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Zadacha">
+        <PropertyRef Name="SotrudnikId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Zadacha_ZaiavkaOtdel">
+    <End Type="KR2_NagimovModel.ZaiavkaOtdel" Role="ZaiavkaOtdel" Multiplicity="1" />
+    <End Type="KR2_NagimovModel.Zadacha" Role="Zadacha" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ZaiavkaOtdel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Zadacha">
+        <PropertyRef Name="ZaiavkaOtdelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Zaiavka_Zakazchik">
+    <End Type="KR2_NagimovModel.Zakazchik" Role="Zakazchik" Multiplicity="1" />
+    <End Type="KR2_NagimovModel.Zaiavka" Role="Zaiavka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zakazchik">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Zaiavka">
+        <PropertyRef Name="ZakazchikId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ZaiavkaOtdel_Zaiavka">
+    <End Type="KR2_NagimovModel.Zaiavka" Role="Zaiavka" Multiplicity="1" />
+    <End Type="KR2_NagimovModel.ZaiavkaOtdel" Role="ZaiavkaOtdel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zaiavka">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ZaiavkaOtdel">
+        <PropertyRef Name="ZaiavkaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
